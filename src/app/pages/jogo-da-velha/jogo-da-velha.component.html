@@ -1,88 +1,95 @@
-<div class="container">
-  <br>
+<div class="bg font">
+  <div class="container">
+    <br>
+    <form *ngIf="visibleHash == false">
+      <br><br><br>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>Jogador 1</label>
+            <input [(ngModel)]="playerOne" [ngModelOptions]="{standalone: true}" class="form-control" id="playerOne"
+              placeholder="Digite o nome do jogador 1 (será o 'X')">
+            <br><br>
+          </div>
+          <div class="form-group">
+            <label>Jogador 2</label>
+            <input [(ngModel)]="playerTwo" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="playerTwo"
+              placeholder="Digite o nome do jogador 2 (será o 'O')">
+          </div>
+          <br><br>
+          <button class="btn float-right" (click)="confirmPlayers(true)" [disabled]="disableButton">CONFIRMAR</button>
+        </div>
+      </div>
+    </form>
 
-  <form *ngIf="visibleHash == false">
-    <div class="form-group">
-      <label>Jogador 1</label>
-      <input [(ngModel)]="playerOne" [ngModelOptions]="{standalone: true}" class="form-control" id="playerOne"
-        placeholder="Digite o nome do jogador 1 (será o 'X')">
-    </div>
-    <div class="form-group">
-      <label>Jogador 2</label>
-      <input [(ngModel)]="playerTwo" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="playerTwo"
-        placeholder="Digite o nome do jogador 2 (será o 'O')">
-    </div>
-    <button class="btn float-right" (click)="confirmPlayers(true)" [disabled]="disableButton">CONFIRMAR</button>
-  </form>
-
-  <div *ngIf="visibleHash == true">
-    <div class="row">
-      <div class="col-12">
-        <h3>Vez do {{turnPlayer}}</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <div (click)="selected('0')" class="card remove-top-left remove-bottom remove-right" id="card0">
-          <span class="hidden-x-0 icons" id="x0">x</span>
-          <span class="hidden-o-0 icons" id="o0">o</span>
+    <div *ngIf="visibleHash == true">
+      <div class="row">
+        <div class="col-12">
+          <h3>Vez do(a) {{turnPlayer}}</h3>
+          <br>
         </div>
       </div>
-      <div class="col-4">
-        <div (click)="selected('1')" class="card remove-top remove-right" id="card1">
-          <span class="hidden-x-1 icons" id="x1">x</span>
-          <span class="hidden-o-1 icons" id="o1">o</span>
+      <div class="row">
+        <div class="col-4">
+          <div (click)="selected('0')" class="card remove-top-left remove-bottom remove-right" id="card0">
+            <span class="hidden-x-0 icons" id="x0">x</span>
+            <span class="hidden-o-0 icons" id="o0">o</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div (click)="selected('1')" class="card remove-top remove-right" id="card1">
+            <span class="hidden-x-1 icons" id="x1">x</span>
+            <span class="hidden-o-1 icons" id="o1">o</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div (click)="selected('2')" class="card remove-top-right" id="card2">
+            <span class="hidden-x-2 icons" id="x2">x</span>
+            <span class="hidden-o-2 icons" id="o2">o</span>
+          </div>
         </div>
       </div>
-      <div class="col-4">
-        <div (click)="selected('2')" class="card remove-top-right" id="card2">
-          <span class="hidden-x-2 icons" id="x2">x</span>
-          <span class="hidden-o-2 icons" id="o2">o</span>
+      <div class="row">
+        <div class="col-4">
+          <div (click)="selected('3')" class="card remove-left remove-bottom remove-right" id="card3">
+            <span class="hidden-x-3 icons" id="x3">x</span>
+            <span class="hidden-o-3 icons" id="o3">o</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div (click)="selected('4')" class="card remove-top remove-right remove-bottom" id="card4">
+            <span class="hidden-x-4 icons" id="x4">x</span>
+            <span class="hidden-o-4 icons" id="o4">o</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div (click)="selected('5')" class="card remove-right remove-top" id="card5">
+            <span class="hidden-x-5 icons" id="x5">x</span>
+            <span class="hidden-o-5 icons" id="o5">o</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <div (click)="selected('3')" class="card remove-left remove-bottom remove-right" id="card3">
-          <span class="hidden-x-3 icons" id="x3">x</span>
-          <span class="hidden-o-3 icons" id="o3">o</span>
+      <div class="row">
+        <div class="col-4">
+          <div (click)="selected('6')" class="card remove-left-bottom remove-right" id="card6">
+            <span class="hidden-x-6 icons" id="x6">x</span>
+            <span class="hidden-o-6 icons" id="o6">o</span>
+          </div>
         </div>
-      </div>
-      <div class="col-4">
-        <div (click)="selected('4')" class="card remove-top remove-right remove-bottom" id="card4">
-          <span class="hidden-x-4 icons" id="x4">x</span>
-          <span class="hidden-o-4 icons" id="o4">o</span>
+        <div class="col-4">
+          <div (click)="selected('7')" class="card remove-bottom remove-right" id="card7">
+            <span class="hidden-x-7 icons" id="x7">x</span>
+            <span class="hidden-o-7 icons" id="o7">o</span>
+          </div>
         </div>
-      </div>
-      <div class="col-4">
-        <div (click)="selected('5')" class="card remove-right remove-top" id="card5">
-          <span class="hidden-x-5 icons" id="x5">x</span>
-          <span class="hidden-o-5 icons" id="o5">o</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <div (click)="selected('6')" class="card remove-left-bottom remove-right" id="card6">
-          <span class="hidden-x-6 icons" id="x6">x</span>
-          <span class="hidden-o-6 icons" id="o6">o</span>
-        </div>
-      </div>
-      <div class="col-4">
-        <div (click)="selected('7')" class="card remove-bottom remove-right" id="card7">
-          <span class="hidden-x-7 icons" id="x7">x</span>
-          <span class="hidden-o-7 icons" id="o7">o</span>
-        </div>
-      </div>
-      <div class="col-4">
-        <div (click)="selected('8')" class="card remove-bottom-right remove-top" id="card8">
-          <span class="hidden-x-8 icons" id="x8">x</span>
-          <span class="hidden-o-8 icons" id="o8">o</span>
+        <div class="col-4">
+          <div (click)="selected('8')" class="card remove-bottom-right remove-top" id="card8">
+            <span class="hidden-x-8 icons" id="x8">x</span>
+            <span class="hidden-o-8 icons" id="o8">o</span>
+          </div>
         </div>
       </div>
     </div>
     <br>
-    <button class="btn float-right" (click)="resetHidden()" [disabled]="disableButton">RESETAR</button>
   </div>
-
 </div>

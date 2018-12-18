@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 declare let $: any;
 
@@ -12,21 +13,51 @@ export class JogoDaVelhaComponent implements OnInit {
 
   constructor() { }
 
+  // STORAGE OF THE ICONS //
   hash: Array<string> = [];
+  // STORAGE OF THE ICONS //
 
+  // PLAYER NAMES //
   playerOne: string = undefined;
   playerTwo: string = undefined;
+  // PLAYER NAMES //
+
+  // WINNER NAME //
+  playerWinner: string = undefined;
+  // WINNER NAME //
+
+  // NAME OF THE TIME //
   turnPlayer: string = undefined;
+  // NAME OF THE TIME //
 
+  // TURN ICONS //
   turn: string = "";
+  // TURN ICONS //
+
+  // HAVE A WINNER //
   haveWinner: boolean = false;
+  // HAVE A WINNER //
 
+  // DISABLE CONFIRM BUTTON //
   disableButton: boolean = true;
+  // DISABLE CONFIRM BUTTON //
 
+  // ACTIVE THE HASH, IF COMPLETE THE NAMES FIELDS //
   visibleHash: boolean = false;
+  // ACTIVE THE HASH, IF COMPLETE THE NAMES FIELDS //
+
+  // SORT //
+  sort: number;
+  // SORT //
 
   ngOnInit() {
-    this.turn = 'x';
+    this.randomFirstPlayer();
+
+    if (this.randomFirstPlayer() == 1) {
+      this.turn = 'x';
+    } else {
+      this.turn = 'o';
+    }
   }
 
   ngDoCheck() {
@@ -39,6 +70,10 @@ export class JogoDaVelhaComponent implements OnInit {
     } else {
       this.turnPlayer = this.playerTwo;
     }
+  }
+
+  randomFirstPlayer(): number {
+    return this.sort = Math.floor(Math.random() * 2) + 1;
   }
 
   confirmPlayers($event) {
@@ -130,75 +165,75 @@ export class JogoDaVelhaComponent implements OnInit {
   winner(): void {
     // 'X'
     if (this.hash[0] == 'x' && this.hash[1] == 'x' && this.hash[2] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[3] == 'x' && this.hash[4] == 'x' && this.hash[5] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[6] == 'x' && this.hash[7] == 'x' && this.hash[8] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[0] == 'x' && this.hash[4] == 'x' && this.hash[8] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[0] == 'x' && this.hash[3] == 'x' && this.hash[6] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[1] == 'x' && this.hash[4] == 'x' && this.hash[7] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[2] == 'x' && this.hash[5] == 'x' && this.hash[8] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[2] == 'x' && this.hash[4] == 'x' && this.hash[6] == 'x') {
-      alert('vencedor: x');
+      this.messageWinner('X');
       this.restartGame();
       this.haveWinner = true;
     }
     // 'O'
     else if (this.hash[0] == 'o' && this.hash[1] == 'o' && this.hash[2] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[3] == 'o' && this.hash[4] == 'o' && this.hash[5] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[6] == 'o' && this.hash[7] == 'o' && this.hash[8] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[0] == 'o' && this.hash[4] == 'o' && this.hash[8] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[0] == 'o' && this.hash[3] == 'o' && this.hash[6] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[1] == 'o' && this.hash[4] == 'o' && this.hash[7] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[2] == 'o' && this.hash[5] == 'o' && this.hash[8] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     } else if (this.hash[2] == 'o' && this.hash[4] == 'o' && this.hash[6] == 'o') {
-      alert('vencedor: o');
+      this.messageWinner('O');
       this.restartGame();
       this.haveWinner = true;
     }
     else if (this.hash[0] != undefined && this.hash[1] != undefined && this.hash[0] != undefined && this.hash[2] != undefined && this.hash[3] != undefined && this.hash[4] != undefined
       && this.hash[5] != undefined && this.hash[6] != undefined && this.hash[7] != undefined && this.hash[8] != undefined) {
-      alert('empate');
+      this.messageWinner('empate');
       this.restartGame();
       this.haveWinner = true;
     }
@@ -253,6 +288,46 @@ export class JogoDaVelhaComponent implements OnInit {
 
     // Array
     this.hash = [];
+  }
+
+  messageWinner(resultado: string) {
+    if (resultado == "X" || resultado == "O") {
+      if (resultado == "X") {
+        this.playerWinner = this.playerOne;
+      } else {
+        this.playerWinner = this.playerTwo;
+      }
+      Swal({
+        title: this.playerWinner,
+        text: "foi o vencedor da rodada.",
+        type: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3066BE',
+        confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
+      }).then((result) => {
+        if (result.value) {
+          if (resultado == 'X') {
+            this.turn = 'x';
+          } else if (resultado == 'O') {
+            this.turn = 'o';
+          }
+          this.resetHidden();
+        }
+      });
+    } else {
+      Swal({
+        title: 'Empate',
+        text: "Não existirá vencedores.",
+        type: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3066BE',
+        confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
+      }).then((result) => {
+        if (result.value) {
+          this.resetHidden();
+        }
+      });
+    }
   }
 
 }

@@ -1,1 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+.bg {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--dark-gray);
+}
 
+:root {
+    --light-gray: #f4f4f4;
+    --pink: #E71D36;
+    --dark-blue: #3066BE;
+    --ocean-green: #16F3FB;
+    --dark-gray: #303030;
+}
+
+.font {
+    font-family: 'Raleway', sans-serif;
+    color: var(--light-gray);
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+button {
+    font-weight: bold !important;
+    color: var(--light-gray);
+    background: var(--dark-blue);
+    width: 100%;
+    border-radius: 100px !important;
+}
