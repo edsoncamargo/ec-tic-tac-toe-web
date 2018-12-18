@@ -291,6 +291,7 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   messageWinner(resultado: string) {
+    $("#player").addClass("hidden");
     if (resultado == "X" || resultado == "O") {
       if (resultado == "X") {
         this.playerWinner = this.playerOne;
@@ -311,6 +312,7 @@ export class JogoDaVelhaComponent implements OnInit {
           } else if (resultado == 'O') {
             this.turn = 'o';
           }
+          $("#player").removeClass("hidden");
           this.resetHidden();
         }
       });
@@ -324,6 +326,7 @@ export class JogoDaVelhaComponent implements OnInit {
         confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
       }).then((result) => {
         if (result.value) {
+          $("#player").removeClass("hidden");
           this.resetHidden();
         }
       });
