@@ -24,8 +24,11 @@
 
     <div *ngIf="visibleHash == true">
       <div class="row">
-        <div class="col-12">
-          <h3 id="player" class="">Vez do(a) {{turnPlayer}}</h3>
+        <div class="col-1">
+          <i (click)="backGame()" class="fas fa-angle-left icon mouse-click"></i>
+        </div>
+        <div class="col-11">
+          <h3 class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"> {{turnPlayer}}</span></h3>
           <br>
         </div>
       </div>
@@ -89,7 +92,22 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class=" col-lg-4">
+          <br>
+          <button class="btn result">{{playerOne}} {{playerOneWinner}}</button>
+        </div>
+        <div class="col-lg-4">
+          <br>
+          <button class="btn result">{{playerTwo}} {{playerTwoWinner}}</button>
+        </div>
+        <div class="col-lg-4">
+          <br>
+          <button class="btn result">Empate(s) {{draw}}</button>
+        </div>
+      </div>
     </div>
     <br>
   </div>
 </div>
+<app-footer *ngIf="visibleHash == true"></app-footer>

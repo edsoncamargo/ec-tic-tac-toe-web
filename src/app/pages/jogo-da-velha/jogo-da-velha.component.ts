@@ -50,14 +50,14 @@ export class JogoDaVelhaComponent implements OnInit {
   sort: number;
   // SORT //
 
-  ngOnInit() {
-    this.randomFirstPlayer();
+  // COUNTS //
+  playerOneWinner: number = 0;
+  playerTwoWinner: number = 0;
+  draw: number = 0;
+  // COUNTS //
 
-    if (this.randomFirstPlayer() == 1) {
-      this.turn = 'x';
-    } else {
-      this.turn = 'o';
-    }
+  ngOnInit() {
+    this.choiceFirst();
   }
 
   ngDoCheck() {
@@ -69,6 +69,16 @@ export class JogoDaVelhaComponent implements OnInit {
       this.turnPlayer = this.playerOne;
     } else {
       this.turnPlayer = this.playerTwo;
+    }
+  }
+
+  choiceFirst() {
+    this.randomFirstPlayer();
+
+    if (this.randomFirstPlayer() == 1) {
+      this.turn = 'x';
+    } else {
+      this.turn = 'o';
     }
   }
 
@@ -291,7 +301,7 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   messageWinner(resultado: string) {
-    $("#player").addClass("hidden");
+    $(".player").addClass("hidden");
     if (resultado == "X" || resultado == "O") {
       if (resultado == "X") {
         this.playerWinner = this.playerOne;
@@ -308,11 +318,13 @@ export class JogoDaVelhaComponent implements OnInit {
       }).then((result) => {
         if (result.value) {
           if (resultado == 'X') {
+            this.playerOneWinner++;
             this.turn = 'x';
           } else if (resultado == 'O') {
+            this.playerTwoWinner++;
             this.turn = 'o';
           }
-          $("#player").removeClass("hidden");
+          $(".player").removeClass("hidden");
           this.resetHidden();
         }
       });
@@ -326,11 +338,53 @@ export class JogoDaVelhaComponent implements OnInit {
         confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
       }).then((result) => {
         if (result.value) {
-          $("#player").removeClass("hidden");
+          this.draw++;
+          $(".player").removeClass("hidden");
           this.resetHidden();
         }
       });
     }
+  }
+
+  backGame() {
+    // STORAGE OF THE ICONS //
+    this.hash = [];
+    // STORAGE OF THE ICONS //
+
+    // PLAYER NAMES //
+    this.playerOne = undefined;
+    this.playerTwo = undefined;
+    // PLAYER NAMES //
+
+    // WINNER NAME //
+    this.playerWinner = undefined;
+    // WINNER NAME //
+
+    // NAME OF THE TIME //
+    this.turnPlayer = undefined;
+    // NAME OF THE TIME //
+
+    // HAVE A WINNER //
+    this.haveWinner = false;
+    // HAVE A WINNER //
+
+    // DISABLE CONFIRM BUTTON //
+    this.disableButton = true;
+    // DISABLE CONFIRM BUTTON //
+
+    // ACTIVE THE HASH, IF COMPLETE THE NAMES FIELDS //
+    this.visibleHash = false;
+    // ACTIVE THE HASH, IF COMPLETE THE NAMES FIELDS //
+
+    // SORT //
+    this.choiceFirst();
+    // SORT //
+
+    // COUNTS //
+    this.playerOneWinner = 0;
+    this.playerTwoWinner = 0;
+    this.draw = 0;
+    // COUNTS //
   }
 
 }
