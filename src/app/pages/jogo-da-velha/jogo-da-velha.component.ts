@@ -11,11 +11,16 @@ declare let $: any;
 
 export class JogoDaVelhaComponent implements OnInit {
 
-  constructor() { }
-
   // STORAGE OF THE ICONS //
   hash: Array<string> = [];
   // STORAGE OF THE ICONS //
+
+  // PLAYERS ATRIBUTTES //
+  playerOneColor: string = "";
+  playerTwoColor: string = "";
+  radioPlayerOne: string = "";
+  radioPlayerTwo: string = "";
+  // PLAYERS ATRIBUTTES //
 
   // PLAYER NAMES //
   playerOne: string = undefined;
@@ -56,12 +61,15 @@ export class JogoDaVelhaComponent implements OnInit {
   draw: number = 0;
   // COUNTS //
 
+  constructor() {
+  }
+
   ngOnInit() {
     this.choiceFirst();
   }
 
   ngDoCheck() {
-    if (this.playerOne != undefined && this.playerTwo != undefined) {
+    if (this.playerOne != undefined && this.playerTwo != undefined && this.radioPlayerOne != "" && this.radioPlayerTwo) {
       this.disableButton = null;
     }
 
@@ -88,6 +96,9 @@ export class JogoDaVelhaComponent implements OnInit {
 
   confirmPlayers($event) {
     this.visibleHash = $event;
+
+    this.playerOneColor = this.radioPlayerOne;
+    this.playerTwoColor = this.radioPlayerTwo;
   }
 
   selected(index) {
@@ -301,7 +312,6 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   messageWinner(resultado: string) {
-    $(".player").addClass("hidden");
     if (resultado == "X" || resultado == "O") {
       if (resultado == "X") {
         this.playerWinner = this.playerOne;
@@ -324,7 +334,6 @@ export class JogoDaVelhaComponent implements OnInit {
             this.playerTwoWinner++;
             this.turn = 'o';
           }
-          $(".player").removeClass("hidden");
           this.resetHidden();
         }
       });
@@ -338,8 +347,7 @@ export class JogoDaVelhaComponent implements OnInit {
         confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
       }).then((result) => {
         if (result.value) {
-          this.draw++;
-          $(".player").removeClass("hidden");
+          this.draw++
           this.resetHidden();
         }
       });
@@ -385,6 +393,13 @@ export class JogoDaVelhaComponent implements OnInit {
     this.playerTwoWinner = 0;
     this.draw = 0;
     // COUNTS //
+
+    // PLAYERS ATRIBUTTES //
+    this.radioPlayerOne = undefined;
+    this.radioPlayerTwo = undefined;
+    this.playerOneColor = "";
+    this.playerTwoColor = "";
+    // PLAYERS ATTRIBUTES //
   }
 
 }

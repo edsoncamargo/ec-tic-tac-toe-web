@@ -7,7 +7,7 @@
         <div class="col-12">
           <h1 class="center">JOGO DA VELHA</h1>
           <div class="form-group">
-            <label class="title">Jogador 1</label>
+            <label class="title">Jogador 1 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
             <input [(ngModel)]="playerOne" [ngModelOptions]="{standalone: true}" class="form-control" id="playerOne"
               placeholder="Digite o nome do jogador 1 (será o 'X')">
             <div>
@@ -17,21 +17,21 @@
             <div>
               <label class="colors">
                 Vermelho
-                <input id="red" name="player1" type="radio" value="S" />
+                <input [(ngModel)]="radioPlayerOne" id="red" name="player1" type="radio" value="red" />
               </label>
               <label class="colors">
                 &nbsp;&nbsp;&nbsp;Roxo
-                <input id="purple" name="player1" type="radio" value="S" />
+                <input [(ngModel)]="radioPlayerOne" id="purple" name="player1" type="radio" value="purple" />
               </label>
               <label class="colors">
                 &nbsp;&nbsp;&nbsp;Laranja
-                <input id="novo" name="player1" type="radio" value="S" />
+                <input [(ngModel)]="radioPlayerOne" id="orange" name="player1" type="radio" value="orange" />
               </label>
               <hr>
             </div>
           </div>
           <div class="form-group margin-bottom">
-            <label class="title">Jogador 2</label>
+            <label class="title">Jogador 2 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
             <input [(ngModel)]="playerTwo" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="playerTwo"
               placeholder="Digite o nome do jogador 2 (será o 'O')">
           </div>
@@ -41,15 +41,15 @@
           <div class="colors">
             <label class="colors">
               Verde
-              <input id="green" name="player2" type="radio" value="green" />
+              <input [(ngModel)]="radioPlayerTwo" id="green" name="player2" type="radio" value="green" />
             </label>
             <label class="colors">
               &nbsp;&nbsp;&nbsp;Azul
-              <input id="blue" name="player2" type="radio" value="blue" />
+              <input [(ngModel)]="radioPlayerTwo" id="blue" name="player2" type="radio" value="blue" />
             </label>
             <label class="colors">
               &nbsp;&nbsp;&nbsp;Amarelo
-              <input id="yellow" name="player2" type="radio" value="yellow" />
+              <input [(ngModel)]="radioPlayerTwo" id="yellow" name="player2" type="radio" value="yellow" />
             </label>
             <br><br>
           </div>
@@ -64,8 +64,18 @@
           <i (click)="backGame()" class="fas fa-angle-left icon mouse-click"></i>
         </div>
         <div class="col-11">
-          <h3 class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"> {{turnPlayer}}</span></h3>
+          <!-- PLAYER 1 -->
+          <h3 *ngIf="turn == 'x'" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
+              [class.red]="playerOneColor == 'red'" [class.purple]="playerOneColor == 'purple'" [class.orange]="playerOneColor == 'orange'">
+              {{turnPlayer}}</span></h3>
+          <!-- PLAYER 1 -->
+
+          <!-- PLAYER 2 -->
+          <h3 *ngIf="turn == 'o'" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
+              [class.green]="playerTwoColor == 'green'" [class.blue]="playerTwoColor == 'blue'" [class.yellow]="playerTwoColor == 'yellow'">
+              {{turnPlayer}}</span></h3>
           <br>
+          <!-- PLAYER 2 -->
         </div>
       </div>
       <div class="row">
