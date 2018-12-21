@@ -7,12 +7,12 @@
         <div class="col-12">
           <h1 class="center">JOGO DA VELHA</h1>
           <div class="form-group">
-            <label class="title">Jogador 1 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
+            <label>Jogador 1 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
             <input [(ngModel)]="playerOne" [ngModelOptions]="{standalone: true}" class="form-control" id="playerOne"
               placeholder="Digite o nome do jogador 1 (será o 'X')">
             <div>
               <br>
-              <label class="title" for="">Escolha a sua cor Jogador 1</label>
+              <label for="">Escolha a sua cor Jogador 1 &nbsp;&nbsp;<sup><i class="fas fa-asterisk"></i></sup></label>
             </div>
             <div>
               <label class="colors">
@@ -31,12 +31,12 @@
             </div>
           </div>
           <div class="form-group margin-bottom">
-            <label class="title">Jogador 2 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
+            <label>Jogador 2 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
             <input [(ngModel)]="playerTwo" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="playerTwo"
               placeholder="Digite o nome do jogador 2 (será o 'O')">
           </div>
           <div>
-            <label class="title" for="">Escolha a sua cor Jogador 2</label>
+            <label for="">Escolha a sua cor Jogador 2 &nbsp;&nbsp;<sup><i class="fas fa-asterisk"></i></sup></label>
           </div>
           <div class="colors">
             <label class="colors">
@@ -65,13 +65,13 @@
         </div>
         <div class="col-11">
           <!-- PLAYER 1 -->
-          <h3 *ngIf="turn == 'x'" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
+          <h3 *ngIf="turn == 'x' && hiddenName == false" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
               [class.red]="playerOneColor == 'red'" [class.purple]="playerOneColor == 'purple'" [class.orange]="playerOneColor == 'orange'">
               {{turnPlayer}}</span></h3>
           <!-- PLAYER 1 -->
 
           <!-- PLAYER 2 -->
-          <h3 *ngIf="turn == 'o'" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
+          <h3 *ngIf="turn == 'o' && hiddenName == false" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
               [class.green]="playerTwoColor == 'green'" [class.blue]="playerTwoColor == 'blue'" [class.yellow]="playerTwoColor == 'yellow'">
               {{turnPlayer}}</span></h3>
           <br>

@@ -61,6 +61,8 @@ export class JogoDaVelhaComponent implements OnInit {
   draw: number = 0;
   // COUNTS //
 
+  hiddenName: boolean = false;
+
   constructor() {
   }
 
@@ -312,6 +314,7 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   messageWinner(resultado: string) {
+    this.hiddenName = true;
     if (resultado == "X" || resultado == "O") {
       if (resultado == "X") {
         this.playerWinner = this.playerOne;
@@ -324,7 +327,7 @@ export class JogoDaVelhaComponent implements OnInit {
         type: 'success',
         showCancelButton: false,
         confirmButtonColor: '#3066BE',
-        confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
+        confirmButtonText: 'Clique aqui para contabilar o ponto da rodada!'
       }).then((result) => {
         if (result.value) {
           if (resultado == 'X') {
@@ -335,6 +338,7 @@ export class JogoDaVelhaComponent implements OnInit {
             this.turn = 'o';
           }
           this.resetHidden();
+          this.hiddenName = false;
         }
       });
     } else {
@@ -344,11 +348,12 @@ export class JogoDaVelhaComponent implements OnInit {
         type: 'success',
         showCancelButton: false,
         confirmButtonColor: '#3066BE',
-        confirmButtonText: 'Obrigado, vamos reiniciar a rodada!'
+        confirmButtonText: 'Clique aqui para contabilar o ponto da rodada!'
       }).then((result) => {
         if (result.value) {
           this.draw++
           this.resetHidden();
+          this.hiddenName = false;
         }
       });
     }
