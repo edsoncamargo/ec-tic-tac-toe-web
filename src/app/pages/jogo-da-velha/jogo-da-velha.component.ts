@@ -327,7 +327,7 @@ export class JogoDaVelhaComponent implements OnInit {
         type: 'success',
         showCancelButton: false,
         confirmButtonColor: '#3066BE',
-        confirmButtonText: 'Clique aqui para contabilar o ponto da rodada!'
+        confirmButtonText: 'Clique aqui para contabilizar o ponto da rodada!'
       }).then((result) => {
         if (result.value) {
           if (resultado == 'X') {
@@ -348,7 +348,7 @@ export class JogoDaVelhaComponent implements OnInit {
         type: 'success',
         showCancelButton: false,
         confirmButtonColor: '#3066BE',
-        confirmButtonText: 'Clique aqui para contabilar o ponto da rodada!'
+        confirmButtonText: 'Clique aqui para contabilizar o ponto da rodada!'
       }).then((result) => {
         if (result.value) {
           this.draw++
