@@ -32,8 +32,8 @@
           </div>
           <div class="form-group margin-bottom">
             <label>Jogador 2 &nbsp;&nbsp; <sup><i class="fas fa-asterisk"></i></sup></label>
-            <input [(ngModel)]="playerTwo" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="playerTwo"
-              placeholder="Digite o nome do jogador 2 (será o 'O')">
+            <input [(ngModel)]="playerTwo" [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+              id="playerTwo" placeholder="Digite o nome do jogador 2 (será o 'O')">
           </div>
           <div>
             <label for="">Escolha a sua cor Jogador 2 &nbsp;&nbsp;<sup><i class="fas fa-asterisk"></i></sup></label>
@@ -65,14 +65,16 @@
         </div>
         <div class="col-11">
           <!-- PLAYER 1 -->
-          <h3 *ngIf="turn == 'x' && hiddenName == false" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
-              [class.red]="playerOneColor == 'red'" [class.purple]="playerOneColor == 'purple'" [class.orange]="playerOneColor == 'orange'">
+          <h3 *ngIf="turn == 'x' && hiddenName == false">Vez do(a) <span class="player playerTitle"
+              [class.red]="playerOneColor == 'red'" [class.purple]="playerOneColor == 'purple'"
+              [class.orange]="playerOneColor == 'orange'">
               {{turnPlayer}}</span></h3>
           <!-- PLAYER 1 -->
 
           <!-- PLAYER 2 -->
-          <h3 *ngIf="turn == 'o' && hiddenName == false" class="player">&nbsp;&nbsp;&nbsp;Vez do(a) <span class="player playerTitle"
-              [class.green]="playerTwoColor == 'green'" [class.blue]="playerTwoColor == 'blue'" [class.yellow]="playerTwoColor == 'yellow'">
+          <h3 *ngIf="turn == 'o' && hiddenName == false">Vez do(a) <span class="player playerTitle"
+              [class.green]="playerTwoColor == 'green'" [class.blue]="playerTwoColor == 'blue'"
+              [class.yellow]="playerTwoColor == 'yellow'">
               {{turnPlayer}}</span></h3>
           <br>
           <!-- PLAYER 2 -->
@@ -156,4 +158,4 @@
     <br>
   </div>
 </div>
-<app-footer *ngIf="visibleHash == true"></app-footer>
+<app-footer></app-footer>

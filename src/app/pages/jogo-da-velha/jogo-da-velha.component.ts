@@ -16,10 +16,10 @@ export class JogoDaVelhaComponent implements OnInit {
   // STORAGE OF THE ICONS //
 
   // PLAYERS ATRIBUTTES //
-  playerOneColor: string = "";
-  playerTwoColor: string = "";
-  radioPlayerOne: string = "";
-  radioPlayerTwo: string = "";
+  playerOneColor: string = "red";
+  playerTwoColor: string = "green";
+  radioPlayerOne: string = "red";
+  radioPlayerTwo: string = "green";
   // PLAYERS ATRIBUTTES //
 
   // PLAYER NAMES //
@@ -326,6 +326,7 @@ export class JogoDaVelhaComponent implements OnInit {
         text: "foi o vencedor da rodada.",
         type: 'success',
         showCancelButton: false,
+        allowOutsideClick: false,
         confirmButtonColor: '#3066BE',
         confirmButtonText: 'Clique aqui para contabilizar o ponto da rodada!'
       }).then((result) => {
@@ -347,6 +348,7 @@ export class JogoDaVelhaComponent implements OnInit {
         text: "Não existirá vencedores.",
         type: 'success',
         showCancelButton: false,
+        allowOutsideClick: false,
         confirmButtonColor: '#3066BE',
         confirmButtonText: 'Clique aqui para contabilizar o ponto da rodada!'
       }).then((result) => {
@@ -400,10 +402,10 @@ export class JogoDaVelhaComponent implements OnInit {
     // COUNTS //
 
     // PLAYERS ATRIBUTTES //
-    this.radioPlayerOne = undefined;
-    this.radioPlayerTwo = undefined;
-    this.playerOneColor = "";
-    this.playerTwoColor = "";
+    this.radioPlayerOne = "red";
+    this.radioPlayerTwo = "green";
+    this.playerOneColor = "red";
+    this.playerTwoColor = "green";
     // PLAYERS ATTRIBUTES //
   }
 

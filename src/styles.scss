@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+
 .bg {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--dark-gray);
+    background-color: var(--dark-gray) !important;
 }
 
 :root {
