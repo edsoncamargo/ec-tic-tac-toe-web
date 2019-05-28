@@ -327,6 +327,7 @@ export class JogoDaVelhaComponent implements OnInit {
         type: 'success',
         showCancelButton: false,
         allowOutsideClick: false,
+        allowEscapeKey: false,
         confirmButtonColor: '#3066BE',
         confirmButtonText: 'Clique aqui para contabilizar o ponto da rodada!'
       }).then((result) => {
