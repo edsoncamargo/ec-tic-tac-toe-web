@@ -3,6 +3,20 @@
     color: var(--pink);
 }
 
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.line-title {
+    margin-top: -5px;
+    margin-bottom: 0px;
+    border-top: 3px solid rgba(204, 0, 0, 0.3);
+    width: 280px;
+}
+
 label {
     color: var(--light-gray);
     font-weight: 500;
@@ -209,4 +223,8 @@ label {
 
 .yellow {
     color: yellow !important;
+}
+
+.padding-bottom {
+    padding-bottom: 100px
 }
